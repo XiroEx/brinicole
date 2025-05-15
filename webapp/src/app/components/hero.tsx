@@ -13,9 +13,16 @@ export default function Hero() {
         const element = overlay.current;
         if (!element) return;
 
+        let ticking = false;
+
         const handleScroll = () => {
-            // Set scrolled to the current scrollTop value
-            setScrolled(element.scrollTop);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrolled(element.scrollTop);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
         element.addEventListener("scroll", handleScroll);
