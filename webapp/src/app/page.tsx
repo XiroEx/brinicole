@@ -16,9 +16,9 @@ export default function Home() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              className="rounded-lg w-full aspect-video max-w-md pop border-[#7c6f57] border-2 shadow-lg  mx-auto animate-slide-in-left"
+              className="rounded-lg w-full aspect-video max-w-md pop border-[#7c6f57] border-2 shadow-lg  mx-auto animate-slide-in-left pop"
             ></iframe>
-            <p className="text-center md:text-left text-lg text-[#7c6f57] max-w-4xl mb-6 md:mb-0 pop-big animate-slide-in-right">
+            <p className="text-center md:text-left text-lg text-[#7c6f57] max-w-4xl mb-6 md:mb-0 pop-big animate-slide-in-right pop">
               Born to the rhythm of two islands, Bri Nicole is a Dominican-Jamaican singer/songwriter blending R&B soul with Afro-Caribbean rhythm. She creates music that’s soulful, grounded, and unmistakably hers. Her sound marries sensual melodies with rich Caribbean textures, while her lyrics open emotional doors. Whether she’s performing live, recording, or dropping visuals, Bri’s aura stays real, radiant, and raw.
             </p>
           </div>
