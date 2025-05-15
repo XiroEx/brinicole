@@ -3,7 +3,7 @@ export default function Socials() {
     return (
       <div className="animate-slide-in-up">
         <h2 className="text-2xl font-semibold text-[#6c584c] mb-4 pop text-center">Listen, Watch, Follow</h2>
-        <div className="grid grid-cols-2 gap-6 sm:flex sm:gap-6">
+        <div className="grid grid-cols-3 gap-6 sm:grid-cols-5 sm:flex sm:gap-6">
           <a href="https://music.apple.com/us/artist/bri-nicole/1805199700" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
             <span className="sr-only">Apple Music</span>
             {appleMusicIcon}
@@ -20,7 +20,7 @@ export default function Socials() {
             <span className="sr-only">TikTok</span>
             {tiktokIcon}
           </a>
-          <a href="https://www.instagram.com/ms.brinicole/" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center col-span-2 sm:col-span-1">
+          <a href="https://www.instagram.com/ms.brinicole/" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
             <span className="sr-only">Instagram</span>
             {instaIcon}
           </a>
@@ -111,10 +111,11 @@ const instaIcon = (
     aria-hidden="true"
   >
     <title>Instagram</title>
-    <circle cx="12" cy="12" r="12" /> {/* No fill, uses currentColor like others */}
-    <path
-      d="M16.5 10.5v1.1a3.6 3.6 0 0 1-2.1-.7v3.1a3.5 3.5 0 1 1-3.5-3.5c.2 0 .4 0 .6.1v1.3a2.2 2.2 0 1 0 2.2 2.2v-7.1h1.3c.1 1.1 1 2 2.1 2.2z"
-      fill="#fff"
-    />
+    <circle cx="12" cy="12" r="12" />
+    <g>
+      <rect x="7" y="7" width="10" height="10" rx="3" fill="#fff" />
+      <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+      <circle cx="15.2" cy="8.8" r="0.8" fill="currentColor" />
+    </g>
   </svg>
 )
