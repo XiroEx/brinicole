@@ -62,6 +62,10 @@ export default function Hero() {
             onClick={() => setActive(!active)}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
+            onTouchStart={() => setHovered(true)}
+            onTouchEnd={() => setHovered(false)}
+            onTouchCancel={() => setHovered(false)}
+            onTouchMove={() => setHovered(false)}
         >
             <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-[#a98467] shadow-lg animate-pop-in">
                 <Image
