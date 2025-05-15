@@ -18,20 +18,28 @@ export default function Hero() {
         );
     }, []);
 
-    // Update hero transform on scroll without React state
+    // Update hero transform on scroll without React state, with debounce for "scrollend"
     useEffect(() => {
         const element = overlay.current;
         if (!element) return;
 
+        let timeoutId: NodeJS.Timeout | null = null;
+
         const handleScroll = () => {
-            scrollY.current = element.scrollTop;
-            if (active && heroRef.current) { 
-                heroRef.current.style.transform = `scale(2) translateY(-${scrollY.current}px)`;
-            }
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                scrollY.current = element.scrollTop;
+                if (active && heroRef.current) {
+                    heroRef.current.style.transform = `scale(2) translateY(-${scrollY.current}px)`;
+                }
+            }, 50); // 50ms debounce
         };
 
         element.addEventListener("scroll", handleScroll);
-        return () => element.removeEventListener("scroll", handleScroll);
+        return () => {
+            element.removeEventListener("scroll", handleScroll);
+            if (timeoutId) clearTimeout(timeoutId);
+        };
     }, [active]);
 
     // Reset transform when not active
