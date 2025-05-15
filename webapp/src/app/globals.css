@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  --color-primary: #f4f1ea;
+  --color-secondary: #a98467;
+  --color-accent: #f4f1ea;
+  --color-bg-light: #b7a98e;
+  --color-bg-dark: #b7dd99;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -25,6 +30,7 @@ body {
   font-family: Yeseva One, Helvetica, sans-serif;
 }
 
+/* Example usage of variables */
 .pop,
 .pop-big,
 .pop-huge {
@@ -36,7 +42,6 @@ body {
 .pop-big:hover {
   transform: scale(1.1);
 }
-
 .pop-huge:hover {
   transform: scale(2);
 }
@@ -49,6 +54,11 @@ body {
 
 button {
   cursor: pointer;
+  background: var(--color-secondary);
+  color: #fff;
+}
+button:hover {
+  background: var(--color-primary);
 }
 
 @keyframes slide-in-left {

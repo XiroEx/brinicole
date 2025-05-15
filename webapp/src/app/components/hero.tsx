@@ -42,7 +42,7 @@ export default function Hero() {
     return (
         <>
             <div
-                className={`fixed top-0 bottom-0 left-0 right-0 bg-red-100 max-h-screen ${hovered || active ? 'z-1' : 'opacity-0 z-[-1]'} transition-opacity duration-500 ease-in-out pt-[416px] md:pt-108 px-12 overflow-auto`}
+                className={`fixed top-0 bottom-0 left-0 right-0 bg-[var(--color-bg-dark)] max-h-screen ${hovered || active ? 'z-1' : 'opacity-0 z-[-1]'} transition-opacity duration-500 ease-in-out pt-[416px] md:pt-108 px-12 overflow-auto`}
                 ref={overlay}
                 onClick={() => setActive(!active)}
             >
@@ -55,7 +55,7 @@ export default function Hero() {
                     <Image src="/brinicole.jpg" alt="Bri Nicole" width={500} height={500} className="rounded-4xl mt-4 mb-4 pop-huge mx-auto" />
                     
                 </div>
-                <p className={`text-xl text-[#7c6f57] max-w-6xl mx-auto mb-6 md:mb-0 pop-big ${hovered || active ? '' : 'hidden'}`}>
+                <p className={`text-xl text-[var(--color-accent)] max-w-6xl mx-auto mb-6 md:mb-0 pop-big ${hovered || active ? '' : 'hidden'}`}>
                     Bri is an emerging R&B artist with roots deeply embedded in the heart of Long Island, New York. Born and raised in a close-knit suburban environment, she found her early musical inspiration right at home with her parents and brother. From a tender age, Bri was drawn to the captivating melodies and heartfelt lyrics of R&B classics, a genre that would go on to define her own musical identity. Influenced by contemporary R&B luminaries like H.E.R, SZA, Summer Walker, and Kiana Lede, her music beautifully blends the soulful essence of the old-school R&B she grew up loving with a fresh, modern twist.
                     <br />
                     <br />
@@ -64,17 +64,16 @@ export default function Hero() {
             </div>
             <span
                 ref={heroRef}
-                className={`items-center justify-center flex flex-col z-2 ${active ? '' : 'md:pop-huge hover:mt-16'} transition-all duration-500 ease-in-out cursor-pointer`}
+                className={`items-center justify-center flex flex-col z-2 ${!active ? '' : 'md:pop-huge mt-16'} transition-all duration-500 ease-in-out cursor-pointer`}
                 onClick={() => setActive(!active)}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 onTouchStart={() => setHovered(true)}
                 onTouchEnd={() => setHovered(false)}
                 onTouchCancel={() => setHovered(false)}
-                onTouchMove={() => setHovered(false)}
                 style={active ? { transform: `scale(2) translateY(-${scrollY.current}px)` } : {}}
             >
-                <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-[#a98467] shadow-lg animate-pop-in">
+                <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-[var(--color-secondary)] shadow-lg animate-pop-in">
                     <Image
                         src="/briprofile.jpg"
                         alt="Bri Nicole"
@@ -83,13 +82,13 @@ export default function Hero() {
                         className={` cursor-pointer`}
                     />
                 </div>
-                <h1 className="text-4xl sm:text-5xl font-bold text-[#6c584c] mb-2 tracking-tight animate-pop-in">
+                <h1 className="text-4xl sm:text-5xl font-bold text-[var(--color-primary)] mb-2 tracking-tight animate-pop-in">
                     Bri Nicole
                 </h1>
             </span>
             <span className="animate-pop-in">
                 {hovered == false && (
-                    <p className="text-lg text-[#7c6f57] mb-12 italic pop-big">
+                    <p className="text-lg text-[var(--color-accent)] mb-12 italic pop-big">
                         Caribbean body & soul, music that moves you.
                     </p>
                 )}

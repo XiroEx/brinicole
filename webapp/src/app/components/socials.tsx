@@ -2,25 +2,25 @@ export default function Socials() {
 
     return (
       <div className="animate-slide-in-up">
-        <h2 className="text-2xl font-semibold text-[#6c584c] mb-4 pop text-center">Listen, Watch, Follow</h2>
+        <h2 className="text-2xl font-semibold text-[var(--color-primary)] mb-4 pop text-center">Listen, Watch, Follow</h2>
         <div className="grid grid-cols-3 gap-6 sm:grid-cols-5 sm:flex sm:gap-6">
-          <a href="https://music.apple.com/us/artist/bri-nicole/1805199700" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+          <a href="https://music.apple.com/us/artist/bri-nicole/1805199700" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] text-2xl pop-big flex justify-center">
             <span className="sr-only">Apple Music</span>
             {appleMusicIcon}
           </a>
-          <a href="https://open.spotify.com/artist/04E0v9f6E9Rw9nd1w11TUr?si=kDbj32DKRCGmeiTPYIXVtw" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+          <a href="https://open.spotify.com/artist/04E0v9f6E9Rw9nd1w11TUr?si=kDbj32DKRCGmeiTPYIXVtw" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] text-2xl pop-big flex justify-center">
             <span className="sr-only">Spotify</span>
             {spotifyIcon}
           </a>
-          <a href="https://www.youtube.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+          <a href="https://www.youtube.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] text-2xl pop-big flex justify-center">
             <span className="sr-only">YouTube</span>
             {youtubeIcon}
           </a>
-          <a href="https://tiktok.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+          <a href="https://tiktok.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] text-2xl pop-big flex justify-center">
             <span className="sr-only">TikTok</span>
             {tiktokIcon}
           </a>
-          <a href="https://www.instagram.com/ms.brinicole/" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+          <a href="https://www.instagram.com/ms.brinicole/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] text-2xl pop-big flex justify-center">
             <span className="sr-only">Instagram</span>
             {instaIcon}
           </a>

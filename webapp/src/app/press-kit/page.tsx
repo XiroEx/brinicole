@@ -5,12 +5,12 @@ export default function PressKit() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gradient-to-b from-[#f5eee6] to-[#c8b6a6] flex flex-col items-center justify-center ">
+      <main className="min-h-screen bg-gradient-to-b from-[var(--color-bg-light)] to-[var(--color-bg-dark)] flex flex-col items-center justify-center ">
         <section className="w-full max-w-6xl px-6 flex flex-col items-center text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#6c584c] mb-2 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold text-[var(--color-primary)] mb-2 tracking-tight">
             Press Kit
           </h1>
-          <p className="text-lg text-[#7c6f57] mb-6 italic pop-big">
+          <p className="text-lg text-[var(--color-accent)] mb-6 italic pop-big">
             Caribbean body & soul, music that moves you.
           </p>
             {`Rising R&B Sensation Bri Set to Debut with Captivating Single “Tonight” – A Fusion of Caribbean Vibes and Soulful Rhythms
@@ -31,7 +31,7 @@ export default function PressKit() {
 
       For more information about Bri and updates on her musical journey, follow her on Instagram @ms.brinicole.`.split('\n').map((line, idx) =>
             line.trim() !== '' ? (
-              <p key={idx} className="text-lg text-[#7c6f57] max-w-4xl text-left pop mb-4">
+              <p key={idx} className="text-lg text-[var(--color-accent)] max-w-4xl text-left pop mb-4">
               {line}
               </p>
             ) : null
