@@ -3,23 +3,27 @@ export default function Socials() {
     return (
       <div className="animate-slide-in-up">
         <h2 className="text-2xl font-semibold text-[#6c584c] mb-4 pop text-center">Listen, Watch, Follow</h2>
-        <div className="flex gap-6">
-            <a href="https://music.apple.com/us/artist/bri-nicole/1805199700" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big">
-                <span className="sr-only">Apple Music</span>
-                {appleMusicIcon}
-            </a>
-            <a href="https://open.spotify.com/artist/04E0v9f6E9Rw9nd1w11TUr?si=kDbj32DKRCGmeiTPYIXVtw" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big">
-                <span className="sr-only">Spotify</span>
-                {spotifyIcon}
-            </a>
-            <a href="https://www.youtube.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big">
-                <span className="sr-only">YouTube</span>
-                {youtubeIcon}
-            </a>
-            <a href="https://tiktok.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big">
-                <span className="sr-only">TikTok</span>
-                {tiktokIcon}
-            </a>
+        <div className="grid grid-cols-2 gap-6 sm:flex sm:gap-6">
+          <a href="https://music.apple.com/us/artist/bri-nicole/1805199700" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+            <span className="sr-only">Apple Music</span>
+            {appleMusicIcon}
+          </a>
+          <a href="https://open.spotify.com/artist/04E0v9f6E9Rw9nd1w11TUr?si=kDbj32DKRCGmeiTPYIXVtw" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+            <span className="sr-only">Spotify</span>
+            {spotifyIcon}
+          </a>
+          <a href="https://www.youtube.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+            <span className="sr-only">YouTube</span>
+            {youtubeIcon}
+          </a>
+          <a href="https://tiktok.com/@ms.brinicole" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center">
+            <span className="sr-only">TikTok</span>
+            {tiktokIcon}
+          </a>
+          <a href="https://www.instagram.com/ms.brinicole/" target="_blank" rel="noopener noreferrer" className="text-[#a98467] hover:text-[#6c584c] text-2xl pop-big flex justify-center col-span-2 sm:col-span-1">
+            <span className="sr-only">Instagram</span>
+            {instaIcon}
+          </a>
         </div>
       </div>
     )
@@ -89,6 +93,24 @@ const tiktokIcon = (
     aria-hidden="true"
   >
     <title>TikTok</title>
+    <circle cx="12" cy="12" r="12" /> {/* No fill, uses currentColor like others */}
+    <path
+      d="M16.5 10.5v1.1a3.6 3.6 0 0 1-2.1-.7v3.1a3.5 3.5 0 1 1-3.5-3.5c.2 0 .4 0 .6.1v1.3a2.2 2.2 0 1 0 2.2 2.2v-7.1h1.3c.1 1.1 1 2 2.1 2.2z"
+      fill="#fff"
+    />
+  </svg>
+)
+
+const instaIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width="2.5em"
+    height="2.5em"
+    aria-hidden="true"
+  >
+    <title>Instagram</title>
     <circle cx="12" cy="12" r="12" /> {/* No fill, uses currentColor like others */}
     <path
       d="M16.5 10.5v1.1a3.6 3.6 0 0 1-2.1-.7v3.1a3.5 3.5 0 1 1-3.5-3.5c.2 0 .4 0 .6.1v1.3a2.2 2.2 0 1 0 2.2 2.2v-7.1h1.3c.1 1.1 1 2 2.1 2.2z"

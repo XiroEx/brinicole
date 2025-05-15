@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-[#f5eee6] to-[#c8b6a6] flex flex-col items-center justify-center ">
       {/* Hero Section */}
-      <section className="w-full max-w-6xl px-6 pt-16 flex flex-col items-center text-center">
+      <section className="w-full max-w-6xl px-6 pt-8 flex flex-col items-center text-center">
           <Hero/>
           <div className="w-full grid md:grid-cols-2 gap-8 items-center justify-center">
             <iframe
