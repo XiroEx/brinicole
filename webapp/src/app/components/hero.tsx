@@ -57,7 +57,7 @@ export default function Hero() {
             </p>
         </div>
         <span
-            className={`items-center justify-center flex flex-col z-2 ${active ? 'scale-200 mt-16' : 'pop-huge hover:mt-16'} transition-all duration-500 ease-in-out cursor-pointer`}
+            className={`items-center justify-center flex flex-col z-2 ${active ? 'scale-200 mt-16' : 'md:pop-huge hover:mt-16'} transition-all duration-500 ease-in-out cursor-pointer`}
             {...(active ? { style: { transform: `translateY(-${scrolled}px)` } } : {})}
             onClick={() => setActive(!active)}
             onMouseEnter={() => setHovered(true)}
