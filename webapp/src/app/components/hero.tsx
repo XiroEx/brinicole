@@ -6,9 +6,17 @@ import Image from "next/image";
 export default function Hero() {
     const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
     const overlay = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLSpanElement>(null);
     const scrollY = useRef(0);
+
+    useEffect(() => {
+        setIsTouchDevice(
+            typeof window !== "undefined" &&
+            ("ontouchstart" in window || navigator.maxTouchPoints > 0)
+        );
+    }, []);
 
     // Update hero transform on scroll without React state
     useEffect(() => {
@@ -64,16 +72,14 @@ export default function Hero() {
             </div>
             <span
                 ref={heroRef}
-                className={`items-center justify-center flex flex-col z-2 ${!active ? '' : 'md:pop-huge mt-16'} transition-all duration-500 ease-in-out cursor-pointer`}
-                onClick={() => setActive(!active)}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                onTouchStart={() => setHovered(true)}
-                onTouchEnd={() => setHovered(false)}
-                onTouchCancel={() => setHovered(false)}
+                className={`items-center justify-center flex flex-col z-2 ${!active ? '' : 'mt-18'} transition-all duration-500 ease-in-out cursor-pointer ${(!isTouchDevice && (hovered && !active)) ? 'scale-200' : ''}`}
+                onClick={!isTouchDevice ? () => setActive(!active) : undefined}
+                onMouseEnter={!isTouchDevice ? () => setHovered(true) : undefined}
+                onMouseLeave={!isTouchDevice ? () => setHovered(false) : undefined}
+                onTouchEnd={isTouchDevice ? () => setActive(!active) : undefined}
                 style={active ? { transform: `scale(2) translateY(-${scrollY.current}px)` } : {}}
-            >
-                <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-[var(--color-secondary)] shadow-lg animate-pop-in">
+            > 
+                <div className="relative w-40 h-40 mb-2 rounded-full overflow-hidden border-4 border-[var(--color-secondary)] shadow-lg animate-pop-in">
                     <Image
                         src="/briprofile.jpg"
                         alt="Bri Nicole"
@@ -88,7 +94,7 @@ export default function Hero() {
             </span>
             <span className="animate-pop-in">
                 {hovered == false && (
-                    <p className="text-lg text-[var(--color-accent)] mb-12 italic pop-big">
+                    <p className="text-lg text-[var(--color-accent)] mb-6 italic pop-big">
                         Caribbean body & soul, music that moves you.
                     </p>
                 )}

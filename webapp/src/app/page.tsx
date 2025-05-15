@@ -29,7 +29,7 @@ export default function Home() {
       </section>
 
       {/* Music Section */}
-      <section className="w-full max-w-6xl px-6 pb-8 md:py-16 flex flex-col items-center">
+      <section className="w-full max-w-6xl px-6 pb-8 md:py-8 flex flex-col items-center">
         <Socials />
       </section>
 
@@ -63,21 +63,21 @@ export default function Home() {
                 type="text"
                 name="name"
                 placeholder="Your Name"
-                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-bg-light)] text-[var(--color-accent)]"
+                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-secondary)] text-white"
                 required
               />
               <input
                 type="email"
                 name="email"
                 placeholder="Your Email"
-                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-bg-light)] text-[var(--color-accent)]"
+                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-secondary)] text-white"
                 required
               />
               <textarea
                 name="message"
                 placeholder="Your Message"
                 rows={2}
-                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-bg-light)] text-[var(--color-accent)]"
+                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-secondary)] text-white"
                 required
               />
               <button
