@@ -41,6 +41,12 @@ body {
   transform: scale(2);
 }
 
+@media (max-width: 640px) {
+  .pop-huge:hover {
+    transform: none;
+  }
+}
+
 button {
   cursor: pointer;
 }
