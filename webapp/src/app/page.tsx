@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Hero from "./components/hero";
 import Socials from "./components/socials";
 
@@ -17,23 +16,22 @@ export default function Home() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              className="rounded-lg w-full aspect-video max-w-md pop border-[#7c6f57] border-2 shadow-lg  mx-auto"
+              className="rounded-lg w-full aspect-video max-w-md pop border-[#7c6f57] border-2 shadow-lg  mx-auto animate-slide-in-left"
             ></iframe>
-            <p className="text-center md:text-left text-lg text-[#7c6f57] max-w-4xl mb-6 md:mb-0 pop-big">
+            <p className="text-center md:text-left text-lg text-[#7c6f57] max-w-4xl mb-6 md:mb-0 pop-big animate-slide-in-right">
               Born to the rhythm of two islands, Bri Nicole is a Dominican-Jamaican singer/songwriter blending R&B soul with Afro-Caribbean rhythm. She creates music that’s soulful, grounded, and unmistakably hers. Her sound marries sensual melodies with rich Caribbean textures, while her lyrics open emotional doors. Whether she’s performing live, recording, or dropping visuals, Bri’s aura stays real, radiant, and raw.
             </p>
           </div>
-
       </section>
 
       {/* Music Section */}
-      <section className="w-full max-w-6xl px-6 py-16 flex flex-col items-center">
+      <section className="w-full max-w-6xl px-6 pb-8 md:py-16 flex flex-col items-center">
         <Socials />
       </section>
 
       {/* About Section */}
       <section className="w-full max-w-6xl px-6 flex flex-col items-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6 items-stretch animate-slide-in-top">
           <div className="flex flex-col justify-between">
             <div>
               <h2 className="text-2xl font-semibold text-[#6c584c] mb-4 pop text-center">About</h2>
@@ -51,7 +49,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <div className="h-full">
+          <div className="h-full" id="contact">
             <h2 className="text-2xl font-semibold text-[#6c584c] mb-4 pop text-center">Contact</h2>
             <p className="text-base text-[#7c6f57] max-w-xl text-center mb-4 pop">
               Reach out and connect with Bri to experience the power of her music. For press inquiries and interview requests, please contact her:
