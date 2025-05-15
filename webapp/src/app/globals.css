@@ -89,6 +89,17 @@ button {
   }
 }
 
+@keyframes pop-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .animate-slide-in-left {
   animation: slide-in-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
@@ -105,3 +116,6 @@ button {
   animation: slide-in-top 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
+.animate-pop-in {
+  animation: pop-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
