@@ -89,7 +89,7 @@ export default function Hero() {
             > 
                 <div className="relative w-40 h-40 mb-2 rounded-full overflow-hidden border-4 border-[var(--color-secondary)] shadow-lg animate-pop-in">
                     <Image
-                        src="/briprofile.jpg"
+                        src="/photos/profile-pciture.JPG"
                         alt="Bri Nicole"
                         fill
                         priority
