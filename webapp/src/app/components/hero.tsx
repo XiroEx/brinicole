@@ -77,7 +77,7 @@ export default function Hero() {
     useEffect(() => {
         let timer: NodeJS.Timeout | null = null;
         if (!active) {
-            timer = setTimeout(() => setShowHint(true), 5000);
+            timer = setTimeout(() => setShowHint(true), 2500);
         } else {
             setShowHint(false);
         }
