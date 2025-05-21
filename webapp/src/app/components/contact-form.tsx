@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { submitContactForm } from "../calls/contact";
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "success" | "error" | "loading">("idle");
+  const [status, setStatus] = useState<{
+    type: "idle" | "success" | "error" | "loading";
+    message?: string;
+  }>({ type: "idle", message: "" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setStatus("loading");
+    setStatus({ type: "loading" });
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries()) as {
       name: string;
@@ -17,13 +20,20 @@ export default function ContactForm() {
       message: string;
     };
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      setStatus({ type: "error", message: "Please enter a valid email address." });
+      return;
+    }
+
     try {
       await submitContactForm(data);
-      setStatus("success");
+      setStatus({ type: "success", message: "Message sent successfully!" });
       setForm({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Contact form error:", error);
-      setStatus("error");
+      setStatus({ type: "error", message: "Failed to send message. Please try again." });
     }
   };
 
@@ -39,7 +49,7 @@ export default function ContactForm() {
         required
       />
       <input
-        type="email"
+        type="text"
         name="email"
         value={form.email}
         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
@@ -59,15 +69,18 @@ export default function ContactForm() {
       <button
         type="submit"
         className="px-4 py-2 bg-[var(--color-secondary)] text-white rounded-lg hover:bg-[var(--color-primary)] transition duration-300 pop"
-        disabled={status === "loading"}
+        disabled={status.type === "loading"}
       >
-        {status === "loading" ? "Sending..." : "Send Message"}
+        {status.type === "loading" ? "Sending..." : "Send Message"}
       </button>
-      {status === "success" && (
-        <span className="text-green-400 text-sm text-center">Message sent successfully!</span>
-      )}
-      {status === "error" && (
-        <span className="text-red-400 text-sm text-center">Failed to send message. Please try again.</span>
+      {status.type !== "idle" && status.message && (
+        <span
+          className={`text-sm text-center ${
+            status.type === "success" ? "text-green-400" : "text-red-400"
+          }`}
+        >
+          {status.message}
+        </span>
       )}
     </form>
   );

@@ -12,6 +12,8 @@ export async function submitContactForm(data: ContactFormData): Promise<void> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       source: 'Bri Nicole',
+      send: 'bri.burkley21@gmail.com',
+      cc: 'george8794@gmail.com',
       ...data,
     }),
   })
