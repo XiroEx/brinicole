@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #f4f1ea;
-  --color-secondary: #000;
-  --color-accent: #f4f1ea;
-  --color-bg-light: #b7a98e;
-  --color-bg-dark: #b7dd99;
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #222;              /* Black for headings/buttons */
+  --color-secondary: #222;            /* Black for buttons, etc */
+  --color-accent: #222;               /* Black for accent text */
+  --color-bg-light: #f8f5f0;          /* Off white-tan */
+  --color-bg-dark: #f3ede3;           /* Slightly darker tan */
+  --background: #f8f5f0;              /* Main background */
+  --foreground: #222;                 /* Main text color (black) */
 }
 
 @theme inline {

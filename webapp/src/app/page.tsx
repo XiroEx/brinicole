@@ -3,7 +3,7 @@ import Socials from "./components/socials";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#9AB973] from-[var(--color-bg-light)] to-[var(--color-bg-dark)] flex flex-col items-center justify-center ">
+    <main className="min-h-screen bg-gradient-to-b from-[var(--color-bg-dark)] to-[var(--color-bg-light)] flex flex-col items-center justify-center ">
       {/* Hero Section */}
       <section className="w-full max-w-6xl px-6 pt-8 flex flex-col items-center text-center">
           <Hero/>
