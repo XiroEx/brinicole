@@ -1,5 +1,6 @@
 import Hero from "./components/hero";
 import Socials from "./components/socials";
+import ContactForm from "./components/contact-form";
 
 export default function Home() {
   return (
@@ -58,35 +59,7 @@ export default function Home() {
             <p className="text-base text-[var(--color-accent)] max-w-xl text-center mb-4 pop">
               Reach out and connect with Bri to experience the power of her music. For press inquiries and interview requests, please contact her:
             </p>
-            <form className="flex flex-col gap-4 pop" >
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-secondary)] text-white"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-secondary)] text-white"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows={2}
-                className="px-4 py-2 border border-[var(--color-secondary)] rounded-lg focus:outline-none focus:border-[var(--color-primary)] bg-[var(--color-secondary)] text-white"
-                required
-              />
-              <button
-                type="submit"
-                className="px-4 py-2 bg-[var(--color-secondary)] text-white rounded-lg hover:bg-[var(--color-primary)] transition duration-300 pop"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

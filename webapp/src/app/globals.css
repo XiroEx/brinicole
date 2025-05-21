@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --color-primary: #222;              /* Black for headings/buttons */
   --color-secondary: #222;            /* Black for buttons, etc */

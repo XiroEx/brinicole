@@ -2,10 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Gallery from "./gallery";
 
 export default function Hero() {
-    // Remove hovered state
-    // const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
     const [isTouchDevice, setIsTouchDevice] = useState(false);
     const overlay = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
@@ -34,7 +33,6 @@ export default function Hero() {
         return () => window.removeEventListener("resize", checkTouch);
     }, []);
 
-    // Update hero transform on scroll without React state, with debounce for "scrollend"
     useEffect(() => {
         const element = overlay.current;
         if (!element) return;
@@ -48,7 +46,7 @@ export default function Hero() {
                 if (active && heroRef.current) {
                     heroRef.current.style.transform = `scale(2) translateY(-${scrollY.current}px)`;
                 }
-            }, 50); // 50ms debounce
+            }, 50);
         };
 
         element.addEventListener("scroll", handleScroll);
@@ -58,14 +56,12 @@ export default function Hero() {
         };
     }, [active]);
 
-    // Reset transform when not active
     useEffect(() => {
         if (!active && heroRef.current) {
             heroRef.current.style.transform = "";
         }
     }, [active]);
 
-    // Lock body scroll when overlay is active
     useEffect(() => {
         document.body.style.overflow = active ? "hidden" : "";
         return () => { document.body.style.overflow = ""; };
@@ -73,7 +69,7 @@ export default function Hero() {
 
     return (
         <>
-            <Overlay {...{ active, setActive, overlay }} /> 
+            <Gallery active={active} setActive={setActive} overlay={overlay} /> 
             <span
                 ref={heroRef}
                 className={`items-center justify-center flex flex-col z-40 ${active ? 'mt-18' : ''} transition-all duration-500 ease-in-out cursor-pointer`}
@@ -115,65 +111,5 @@ export default function Hero() {
                 )}
             </span>
         </>
-    );
-}
-
-interface OverlayProps {
-    active: boolean;
-    setActive: (active: boolean) => void;
-    overlay: React.RefObject<HTMLDivElement>;
-}
-
-function Overlay({ active, setActive, overlay }: OverlayProps) {
-    return (
-        <div
-            className={`fixed top-0 bottom-0 left-0 right-0 bg-[var(--color-bg-dark)] max-h-screen transition-opacity duration-500 ease-in-out pt-[416px] md:pt-124 px-12 overflow-auto
-                ${active ? 'z-30 opacity-100 pointer-events-auto' : 'opacity-0 z-[-10] pointer-events-none'}`}
-            ref={overlay}
-            onClick={e => {
-                if (e.target === overlay.current) setActive(false);
-            }}
-        >
-            <div
-                className={`
-                    ${active ? '' : 'hidden'}
-                    grid
-                    grid-cols-1
-                    md:grid-cols-3
-                    gap-y-6
-                    gap-x-4
-                    md:gap-y-8
-                    md:gap-x-8
-                    max-w-7xl
-                    mx-auto
-                    px-2
-                    sm:px-4
-                    md:px-0
-                `}
-            >
-                {Array.from({ length: 15 }, (_, i) => (
-                    <div
-                        key={i + 1}
-                        className={`
-                            rounded-4xl overflow-hidden
-                            aspect-[4/5] w-full
-                            bg-[var(--color-bg-dark)]
-                            flex items-center justify-center
-                            md:h-[400px]
-                        `}
-                    >
-                        <Image
-                            src={`/photos/Bri${i + 1}.JPG`}
-                            alt="Bri Nicole"
-                            width={500}
-                            height={625}
-                            className="object-cover w-full h-full"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
-                            priority={i < 3}
-                        />
-                    </div>
-                ))}
-            </div>
-        </div>
     );
 }
