@@ -120,6 +120,15 @@ button:hover {
   }
 }
 
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px); /* adjust distance as needed */
+  }
+}
+
 .animate-slide-in-left {
   animation: slide-in-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
@@ -138,4 +147,8 @@ button:hover {
 
 .animate-pop-in {
   animation: pop-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
 }
