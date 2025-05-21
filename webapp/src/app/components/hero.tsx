@@ -8,7 +8,7 @@ export default function Hero() {
     // const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
     const [isTouchDevice, setIsTouchDevice] = useState(false);
-    const overlay = useRef<HTMLDivElement>(null);
+    const overlay = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
     const heroRef = useRef<HTMLSpanElement>(null);
     const scrollY = useRef(0);
 
@@ -73,31 +73,7 @@ export default function Hero() {
 
     return (
         <>
-            <div
-                className={`fixed top-0 bottom-0 left-0 right-0 bg-[var(--color-bg-dark)] max-h-screen transition-opacity duration-500 ease-in-out pt-[416px] md:pt-108 px-12 overflow-auto
-                    ${active ? 'z-30 opacity-100 pointer-events-auto' : 'opacity-0 z-[-10] pointer-events-none'}`}
-                ref={overlay}
-                onClick={e => {
-                    if (e.target === overlay.current) setActive(false);
-                }}
-            >
-                <div className={`${active ? '' : 'hidden'} grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto`}>
-                    {/* Pictures! */}
-
-                    {Array.from({ length: 15 }, (_, i) => (
-                        <div key={i + 1} className="flex items-center justify-center h-[500px]"> {/* Set a fixed height */}
-                            <Image
-                                src={`/photos/Bri${i + 1}.JPG`}
-                                alt="Bri Nicole"
-                                width={500}
-                                height={500}
-                                className="rounded-4xl mt-4 mb-4 pop-huge mx-auto object-contain"
-                            />
-                        </div>
-                    ))}
-                    
-                </div> 
-            </div>
+            <Overlay {...{ active, setActive, overlay }} /> 
             <span
                 ref={heroRef}
                 className={`items-center justify-center flex flex-col z-40 ${active ? 'mt-18' : ''} transition-all duration-500 ease-in-out cursor-pointer`}
@@ -139,5 +115,65 @@ export default function Hero() {
                 )}
             </span>
         </>
+    );
+}
+
+interface OverlayProps {
+    active: boolean;
+    setActive: (active: boolean) => void;
+    overlay: React.RefObject<HTMLDivElement>;
+}
+
+function Overlay({ active, setActive, overlay }: OverlayProps) {
+    return (
+        <div
+            className={`fixed top-0 bottom-0 left-0 right-0 bg-[var(--color-bg-dark)] max-h-screen transition-opacity duration-500 ease-in-out pt-[416px] md:pt-124 px-12 overflow-auto
+                ${active ? 'z-30 opacity-100 pointer-events-auto' : 'opacity-0 z-[-10] pointer-events-none'}`}
+            ref={overlay}
+            onClick={e => {
+                if (e.target === overlay.current) setActive(false);
+            }}
+        >
+            <div
+                className={`
+                    ${active ? '' : 'hidden'}
+                    grid
+                    grid-cols-1
+                    md:grid-cols-3
+                    gap-y-6
+                    gap-x-4
+                    md:gap-y-8
+                    md:gap-x-8
+                    max-w-7xl
+                    mx-auto
+                    px-2
+                    sm:px-4
+                    md:px-0
+                `}
+            >
+                {Array.from({ length: 15 }, (_, i) => (
+                    <div
+                        key={i + 1}
+                        className={`
+                            rounded-4xl overflow-hidden
+                            aspect-[4/5] w-full
+                            bg-[var(--color-bg-dark)]
+                            flex items-center justify-center
+                            md:h-[400px]
+                        `}
+                    >
+                        <Image
+                            src={`/photos/Bri${i + 1}.JPG`}
+                            alt="Bri Nicole"
+                            width={500}
+                            height={625}
+                            className="object-cover w-full h-full"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+                            priority={i < 3}
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 }
