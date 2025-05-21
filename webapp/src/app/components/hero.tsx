@@ -126,7 +126,7 @@ export default function Hero() {
                 {/* HINT ARROW - now outside the image div, pointing left */}
                 {showHint && (
                     <span
-                        className="absolute left-[200px] top-1/3 -translate-y-1/2 flex items-center animate-bounce-x z-50 pointer-events-none"
+                        className="absolute left-[175px] md:left-[200px] top-1/3 -translate-y-1/2 flex items-center animate-bounce-x z-50 pointer-events-none"
                         aria-label="Interact with the image"
                     >
                         {/* Hand-drawn style arrow SVG */}
